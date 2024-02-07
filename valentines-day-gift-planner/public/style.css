@@ -1,63 +1,66 @@
+/* login.css */
+
+/* Body styles */
 body {
+    background-color: #f5f5f5; /* Light gray background */
     font-family: Arial, sans-serif;
-    background-color:pink;
-}
-
-header {
-    background-color: #ff4081;
-    color: #fff;
-    text-align: center;
-    padding: 1em 0;
-}
-
-nav {
-    background-color: #333;
-    color: #fff;
-    padding: 0.5em 0;
-}
-
-nav ul {
-    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Center the login form horizontally */
+    align-items: center; /* Center the login form vertically */
+    height: 100vh; /* Full viewport height */
     margin: 0;
     padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 1em;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-main {
+/* Form container styles */
+.form-container {
+    background-color: #ffffff; /* White background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow effect */
     padding: 20px;
+    width: 400px; /* Fixed width */
 }
 
-#gifts ul {
-    list-style: none;
-    padding: 0;
-}
-
-#gifts li {
-    background-color: #fff;
-    padding: 20px;
+/* Heading styles */
+.form-container h2 {
+    color: #333333; /* Dark gray text color */
+    text-align: center;
     margin-bottom: 20px;
+    background-color: #f5f5f5; /* Light gray background for heading */
+    padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.buy-button {
-    background-color: #ff4081;
-    color: #fff;
+/* Input field styles */
+.form-container input[type="text"],
+.form-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #cccccc; /* Light gray border */
+    border-radius: 5px;
+}
+
+/* Login button styles */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50; /* Green background */
+    color: #ffffff; /* White text color */
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.buy-button:hover {
-    background-color: #ff0055;
+/* Spacing between input fields and login button */
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container button {
+    margin-bottom: 15px;
+}
+
+/* Hover effect for login button */
+.form-container button:hover {
+    background-color: #45a049; /* Darker green background on hover */
 }
