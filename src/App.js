@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Import Routes instead of BrowserRouter and Route
 import LoginForm from './Auth/LoginForm';
-import HomePage from './components/HomePage';
-import GiftListPage from './components/GiftListPage';
+import HomePage from '../components/HomePage';
+import GiftListPage from '../components/GiftListPage';
 
 const App = () => {
   const [user, setUser] = useState(null);
