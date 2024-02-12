@@ -20,13 +20,20 @@ main {
 }
 
 .gift-card {
-    background-color: #f0f8ff; /* Light blue background color */
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    margin-bottom: 20px;
+    width: 200px; /* Set a fixed width for the gift cards */
+    height: auto; /* Set height to auto to accommodate variable content */
+    margin: 20px; /* Add margin to create space between the gift cards */
     overflow: hidden;
+    transition: transform 0.3s ease; /* Add transition for smooth hover effect */
 }
+
+.gift-card:hover {
+    transform: scale(1.05); /* Scale up the gift card on hover */
+}
+
 
 .gift-card img {
     width: 100%;
@@ -62,4 +69,8 @@ main {
 
 .buy-button:hover {
     background-color: #d46a9f; /* Darker pink background color on hover */
+}
+
+#chocolates {
+    align-content: flex-start;
 }
