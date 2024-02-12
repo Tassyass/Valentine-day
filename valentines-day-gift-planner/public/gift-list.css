@@ -23,21 +23,22 @@ main {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 200px; /* Set a fixed width for the gift cards */
-    height: auto; /* Set height to auto to accommodate variable content */
-    margin: 20px; /* Add margin to create space between the gift cards */
+    width: 200px; 
+    height: auto; 
+    margin: 20px; 
     overflow: hidden;
-    transition: transform 0.3s ease; /* Add transition for smooth hover effect */
+    transition: transform 0.3s ease; 
 }
 
 .gift-card:hover {
-    transform: scale(1.05); /* Scale up the gift card on hover */
+    transform: scale(1.05); 
 }
 
 
 .gift-card img {
     width: 100%;
-    height: auto;
+    height: 50%;
+    
     border-bottom: 1px solid #ddd;
 }
 
@@ -45,22 +46,22 @@ main {
     font-size: 1.5rem;
     margin: 10px 0;
     text-align: center;
-    color: #ff69b4; /* Pink text color */
+    color: #ff69b4; 
 }
 
 .gift-card p {
     font-size: 1rem;
     padding: 0 10px;
     text-align: center;
-    color: #333; /* Dark gray text color */
+    color: #333; 
 }
 
 .buy-button {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #ff69b4; /* Pink background color */
-    color: #fff; /* White text color */
+    background-color: #ff69b4; 
+    color: #fff; 
     border: none;
     border-radius: 0;
     cursor: pointer;
@@ -68,9 +69,6 @@ main {
 }
 
 .buy-button:hover {
-    background-color: #d46a9f; /* Darker pink background color on hover */
+    background-color: #d46a9f;
 }
 
-#chocolates {
-    align-content: flex-start;
-}
