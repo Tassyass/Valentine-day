@@ -2,7 +2,7 @@
 
 /* Body styles */
 body {
-    background-color: rgb(237, 70, 98); /* Light gray background */
+    background-color: #f5f5f5; /* Light gray background */
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center; /* Center the login form horizontally */
@@ -14,10 +14,10 @@ body {
 
 /* Form container styles */
 .form-container {
-    background-color: pink; /* White background */
+    background-color: #ffffff; /* White background */
     border-radius: 10px; /* Rounded corners */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Drop shadow effect */
-    padding: 30px;
+    padding: 20px;
     width: 400px; /* Fixed width */
 }
 
