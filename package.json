@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Description of your project",
   "scripts": {
-    "start": "node index.js" 
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/philipmuhoro/Valentine-s-Day-Gift-Planner/issues"
   },
-  "homepage": "https://github.com/philipmuhoro/Valentine-s-Day-Gift-Planner#readme"
+  "homepage": "https://github.com/philipmuhoro/Valentine-s-Day-Gift-Planner#readme",
+  "dependencies": {
+    "faker": "^6.6.6"
+  }
 }
