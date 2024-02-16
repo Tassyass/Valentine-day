@@ -18,9 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "clean": "rm -rf build"
-    
   },
-  
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -38,5 +36,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.23.4"
   }
 }
