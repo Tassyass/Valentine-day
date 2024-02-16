@@ -1,14 +1,24 @@
 #!/usr/bin/env python3
 
-from flask import  Flask, make_response, request, jsonify
+from flask import  Flask, make_response, request, jsonify, render_template
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
 from werkzeug.exceptions import NotFound
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 from models import db,  User, Gift, Giftlist
 
-app  = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app = Flask(
+    __name__,
+    static_url_path='',
+    static_folder='../valentines-day-gift-planner/build',
+    template_folder='../valentines-day-gift-planner/build'
+    )
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 Migrate(app, db)
@@ -18,12 +28,12 @@ api= Api(app)
 
 @app.errorhandler(NotFound)
 def handle_not_found(e):
-    response= make_response("NotFound: The requested resource not found", 404)
-    return response
+    # response= make_response("NotFound: The requested resource not found", 404)
+    return render_template('index.html', title= 'Homepage')
 
-@app.route('/')
-def home():
-    return 'Think Valentine, Think us!'
+# @app.route('/')
+# def home():
+#     return 'Think Valentine, Think us!'
 
 class Users(Resource):
     def get(self):
