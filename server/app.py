@@ -11,22 +11,22 @@ load_dotenv()
 
 from models import db,  User, Gift, Giftlist
 
-app = Flask(
+application = Flask(
     __name__,
     static_url_path='',
     static_folder='../valentines-day-gift-planner/build',
     template_folder='../valentines-day-gift-planner/build'
     )
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
+application.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-Migrate(app, db)
+Migrate(application, db)
 
-db.init_app(app)
-api= Api(app)
+db.init_app(application)
+api= Api(application)
 
-@app.errorhandler(NotFound)
+@application.errorhandler(NotFound)
 def handle_not_found(e):
     # response= make_response("NotFound: The requested resource not found", 404)
     return render_template('index.html', title= 'Homepage')
@@ -164,4 +164,4 @@ api.add_resource(GiftLists, '/gift_lists')
 # api.add_resource(GiftLists, '/gift_lists')
             
 if __name__ == '__main__':
-    app.run(port=5555, debug=True)                 
+    application.run(port=5555, debug=True)                 
