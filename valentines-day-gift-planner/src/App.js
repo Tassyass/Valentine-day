@@ -1,24 +1,45 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const db = require('./models');
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import GiftListPage from './pages/GiftListPage';
 
-const app = express();
+function App() {
+  // Define a login component inline
+  const Login = () => {
+    // Handler for login button click
+    const handleLogin = () => {
+      // Add your login logic here
+      console.log("Logging in...");
+    };
 
-// Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+    return (
+      <div>
+        <h2>Login Page</h2>
+        <form>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div>
+            <label htmlFor="username">Username:</label>
+            <input type="text" id="username" name="username" />
+          </div>
+          <button type="button" onClick={handleLogin}>Login</button>
+        </form>
+      </div>
+    );
+  };
 
-// Routes
-app.use('/api/users', require('./routes/userRoutes'));
-app.use('/api/gifts', require('./routes/giftRoutes'));
-app.use('/api/giftlists', require('./routes/giftListRoutes'));
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<HomePage />} />
+        <Route path="/gifts" element={<GiftListPage />} />
+        {/* Add login route */}
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
+  );
+}
 
-// Start the server
-const PORT = process.env.PORT || 3000;
-db.sequelize.sync().then(() => {
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-});
+export default App;
