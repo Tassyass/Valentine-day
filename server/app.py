@@ -6,6 +6,7 @@ from flask_restful import Api, Resource
 from werkzeug.exceptions import NotFound
 import os
 
+
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -17,10 +18,10 @@ application = Flask(
     static_folder='../valentines-day-gift-planner/build',
     template_folder='../valentines-day-gift-planner/build'
     )
-application.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI')
+application.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI ', "postgresql://v_day_yr6g_user:5gTZwgHUoFqtWW1MU7mkT6v9UKauMIga@dpg-cn7h8ruct0pc738um2b0-a.oregon-postgres.render.com/v_day_yr6g")
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
+application.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
 Migrate(application, db)
 
 db.init_app(application)
@@ -31,9 +32,9 @@ def handle_not_found(e):
     # response= make_response("NotFound: The requested resource not found", 404)
     return render_template('index.html', title= 'Homepage')
 
-# @app.route('/')
-# def home():
-#     return 'Think Valentine, Think us!'
+@application.route('/')
+def home():
+    return 'Think Valentine, Think us!'
 
 class Users(Resource):
     def get(self):

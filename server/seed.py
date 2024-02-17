@@ -1,11 +1,11 @@
 import random
 from models import db, User, Gift, Giftlist
-from app import app
+from app import application
 from faker import Faker
 
 fake = Faker()
 
-with app.app_context():
+with application.app_context():
     print("Deleting data................")
     User.query.delete()
     Gift.query.delete()
