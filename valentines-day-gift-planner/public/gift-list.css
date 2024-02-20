@@ -71,3 +71,23 @@ main {
     background-color: #d46a9f;
 }
 
+/* Style for like buttons */
+.like-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* Individual styles for specific like buttons */
+#like-flowers {
+    background-color: #ff4081; /* Pink */
+}
+
+/* Add similar styles for other like buttons */
