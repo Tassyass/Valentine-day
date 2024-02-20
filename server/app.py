@@ -12,27 +12,27 @@ load_dotenv()
 
 from models import db,  User, Gift, Giftlist
 
-application = Flask(
+app = Flask(
     __name__,
     static_url_path='',
     static_folder='../valentines-day-gift-planner/build',
     template_folder='../valentines-day-gift-planner/build'
     )
-application.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI ', "postgresql://v_day_yr6g_user:5gTZwgHUoFqtWW1MU7mkT6v9UKauMIga@dpg-cn7h8ruct0pc738um2b0-a.oregon-postgres.render.com/v_day_yr6g")
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URI ', "postgresql://v_day_yr6g_user:5gTZwgHUoFqtWW1MU7mkT6v9UKauMIga@dpg-cn7h8ruct0pc738um2b0-a.oregon-postgres.render.com/v_day_yr6g")
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
-application.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-application.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
-Migrate(application, db)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
+Migrate(app, db)
 
-db.init_app(application)
-api= Api(application)
+db.init_app(app)
+api= Api(app)
 
-@application.errorhandler(NotFound)
+@app.errorhandler(NotFound)
 def handle_not_found(e):
     # response= make_response("NotFound: The requested resource not found", 404)
     return render_template('index.html', title= 'Homepage')
 
-@application.route('/')
+@app.route('/')
 def home():
     return 'Think Valentine, Think us!'
 
@@ -165,4 +165,4 @@ api.add_resource(GiftLists, '/gift_lists')
 # api.add_resource(GiftLists, '/gift_lists')
             
 if __name__ == '__main__':
-    application.run(port=5555, debug=True)                 
+    app.run(port=5555, debug=True)                 
